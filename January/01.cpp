@@ -69,7 +69,15 @@ void softDrinking(){
   cout<<min((k*l)/nl,min(c*d,p/np))/n<<endl;
 }
 
+void friendsMeet(){
+  int a,b,c;
+  cin>>a>>b>>c;
+  int middle=a+b+c-(min(a,min(b,c))+max(a,max(b,c)));
+  cout<<abs(a-middle)+abs(b-middle)+abs(c-middle)<<endl;
+  
+}
+
 int main(){
-    softDrinking();
+    friendsMeet();
     return 0;
 }
