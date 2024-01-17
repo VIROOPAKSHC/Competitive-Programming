@@ -48,8 +48,22 @@ void chewbacca(){
     cout<<new_string<<endl;
 }
 
+void beautifulMatrix(){
+  int a,b;
+  for(int i=0;i<5;i++){
+    for(int j=0;j<5;j++){
+      int temp;
+      cin>>temp;
+      if(temp==1){
+        a=i;
+        b=j;
+      }
+    }
+  }
+  cout<<abs(2-a)+abs(2-b)<<endl;
+}
 
 int main(){
-    
+    beautifulMatrix();
     return 0;
 }
