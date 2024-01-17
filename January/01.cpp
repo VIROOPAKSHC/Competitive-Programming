@@ -63,7 +63,13 @@ void beautifulMatrix(){
   cout<<abs(2-a)+abs(2-b)<<endl;
 }
 
+void softDrinking(){
+  int n, k, l, c, d, p, nl, np;
+  cin>>n>>k>>l>>c>>d>>p>>nl>>np;
+  cout<<min((k*l)/nl,min(c*d,p/np))/n<<endl;
+}
+
 int main(){
-    beautifulMatrix();
+    softDrinking();
     return 0;
 }
