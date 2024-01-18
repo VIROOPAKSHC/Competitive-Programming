@@ -109,7 +109,20 @@ void arrival(){
     }
 }
 
+void EasyHard(){
+    int n;cin>>n;
+    bool flag=true;
+    for(int i=0;i<n;i++){
+        int temp;cin>>temp;
+        if(temp==1){
+            flag=false;
+        }
+    }
+    if(flag)cout<<"EASY"<<endl;
+    else cout<<"HARD"<<endl;
+}
+
 int main(){
-    arrival();
+    EasyHard();
     return 0;
 }
