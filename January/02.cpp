@@ -64,7 +64,23 @@ void foxAndSnake(){
     }
 }
 
+void anton(){
+    ll n;cin>>n;
+    ll faces=0;
+    map<string,int> mp;
+    mp["Tetrahedron"]=4;
+    mp["Cube"]=6;
+    mp["Octahedron"]=8;
+    mp["Dodecahedron"]=12;
+    mp["Icosahedron"]=20;
+    for(ll i=0;i<n;i++){
+        string temp;cin>>temp;
+        faces+=mp[temp];
+    }
+    cout<<faces<<endl;
+}
+
 int main(){
-    foxAndSnake();
+    anton();
     return 0;
 }
