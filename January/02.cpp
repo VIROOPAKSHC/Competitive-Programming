@@ -32,7 +32,39 @@ void roundNumbers(){
 
 }
 
+void foxAndSnake(){
+    int n,m;cin>>n>>m;
+    bool prev=true;
+    for(int i=0;i<n;i++){
+        if(i%2!=0){
+            if(!prev){
+                cout<<"#";
+            }
+            else{
+                cout<<".";
+            }
+            for(int j=1;j<m-1;j++){
+                cout<<".";
+            }
+            if(prev){
+                cout<<"#";
+                
+            }
+            else{
+                cout<<".";
+            }
+            prev=!prev;
+        }
+        else{
+            for(int j=0;j<m;j++){
+                cout<<"#";
+            }
+        }
+        cout<<endl;
+    }
+}
+
 int main(){
-    roundNumbers();
+    foxAndSnake();
     return 0;
 }
