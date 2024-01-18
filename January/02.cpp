@@ -80,7 +80,36 @@ void anton(){
     cout<<faces<<endl;
 }
 
+void arrival(){
+    int n;cin>>n;
+    int max_num=-1,min_num=120;
+    vector<int> vect;
+    for(int i=0;i<n;i++){
+        int temp;cin>>temp;max_num=max(max_num,temp);min_num=min(min_num,temp);
+        vect.push_back(temp);
+    }
+    if((vect[0]==max_num) && (vect[n-1]==min_num)){
+        cout<<0<<endl;
+        return;
+    }
+    int first_max=n,last_min=-1;
+    for(int i=0;i<n;i++){
+        if(vect[i]==max_num){
+            first_max=min(first_max,i);
+        }
+        if(vect[i]==min_num){
+            last_min=max(last_min,i);
+        }
+    }
+    if(first_max>last_min){
+        cout<<first_max+(n-2-last_min)<<endl;
+    }
+    else{
+        cout<<first_max+(n-1-last_min)<<endl;
+    }
+}
+
 int main(){
-    anton();
+    arrival();
     return 0;
 }
