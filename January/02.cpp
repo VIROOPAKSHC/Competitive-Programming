@@ -122,7 +122,23 @@ void EasyHard(){
     else cout<<"HARD"<<endl;
 }
 
+void presents(){
+    int n;
+    cin>>n;
+    map<int,int> mp;
+    vector<int> vect;
+    for(int i=1;i<n+1;i++){
+        int temp;cin>>temp;
+        mp[temp]=i;
+    }
+
+    for(int i=1;i<n+1;i++){
+        cout<<mp[i]<<" ";
+    }
+    cout<<endl;
+}
+
 int main(){
-    EasyHard();
+    presents();
     return 0;
 }
