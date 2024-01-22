@@ -68,6 +68,43 @@ bool findRedundantBrackets(string &s)
     
 }
 
+bool isValidParenthesis(string s)
+{
+    // Write your code here.
+    stack<char> st;
+    for(auto a:s){
+        if(a=='(' || a=='{' || a=='['){
+            st.push(a);
+        }
+        else if(a==')'){
+            if(st.empty()){
+                return false;
+            }
+            if(st.top()!='('){
+                return false;
+            }
+            st.pop();
+        }
+        else if(a==']'){
+            if(st.empty()){
+                return false;
+            }
+            if (st.top() != '[') {
+                return false;
+            }
+            st.pop();
+        } else if (a == '}') {
+            if(st.empty()){
+                return false;
+            }
+            if(st.top()!='{'){
+                return false;
+            }
+            st.pop();
+        }
+    }
+    return true;
+}
 
 int main(){
 
