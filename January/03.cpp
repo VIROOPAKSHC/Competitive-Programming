@@ -36,6 +36,37 @@ Node* reverseLinkedList(Node *head)
     return newhead;
 }
 
+bool findRedundantBrackets(string &s)
+{
+    // Write your code here.
+    stack<int> st;
+    int curr_count=0;
+    for(auto x:s){
+        if(x=='('){
+            st.push(curr_count);
+        }
+        else if(x=='+' || x=='-' || x=='*' || x=='/'){
+            if(st.empty()){
+                continue;
+            }
+            curr_count=st.top();
+            
+            st.pop();
+            curr_count+=1;
+            st.push(curr_count);
+            curr_count=0;
+        }
+        else if(x==')'){
+            int a=st.top();
+            st.pop();
+            if(a==0){
+                return true;
+            }
+        }
+    }
+    return false;
+    
+}
 
 
 int main(){
