@@ -239,6 +239,35 @@ vector<vector<int>> towerOfHanoi(int n)
    return ans;
 }
 
+string kthChildNthGeneration(int n, long long int k)
+{
+	// Write your code here	
+	if(n==1 || k==1){
+		return "Male";
+	}
+	else if(n==2){
+		if(k==1){
+			return "Male";
+		}
+		else{
+			return "Female";
+		}
+	}
+	else{
+		long long int a=(k/2)+(k%2);
+		string parent=kthChildNthGeneration(n-1,a);
+		
+		if(parent == "Male"){
+			if(k%2) return "Male";
+			else return "Female";
+		}
+		else{
+			if(k%2) return "Female";
+			else return "Male";
+		}
+	}
+}
+
 int main(){
 
     return 0;
