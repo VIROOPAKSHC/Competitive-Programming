@@ -221,6 +221,24 @@ public:
     }
 };
 
+
+void toh(int n, int src, int aux, int dest, vector<vector<int>> &ans)
+{
+   if(n==0)
+   {
+       return ;
+   }
+   toh(n-1, src, dest, aux,ans);
+   ans.push_back({src, dest});
+   toh(n-1, aux, src, dest,ans);
+}
+vector<vector<int>> towerOfHanoi(int n)
+{
+   vector<vector<int>> ans;
+   toh(n, 1, 2, 3, ans);
+   return ans;
+}
+
 int main(){
 
     return 0;
