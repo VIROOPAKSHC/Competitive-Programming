@@ -69,7 +69,21 @@ void Tram(){
     cout<<max_len<<endl;
 }
 
+void Tanya(){
+    int a,b;cin>>a>>b;
+    while(b){
+        if(a%10==0){
+            a=a/10;
+        }
+        else{
+            a=a-1;
+        }
+        b--;
+    }
+    cout<<a<<endl;
+}
+
 int main(){
-    Tram();
+    Tanya();
     return 0;
 }
