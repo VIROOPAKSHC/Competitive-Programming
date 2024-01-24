@@ -21,6 +21,23 @@ int nthTermOfGP(int N, int A, int R) {
     return static_cast<int>(ans);
 }
 
+vector<int> printSeries(int n, int k)
+{
+    // Write your code here
+    vector<int> ans;
+    stack<int> st;
+    while(n>0){
+        ans.push_back(n);
+        st.push(n);
+        n=n-k;
+    }
+    ans.push_back(n);
+    while(!st.empty()){
+        ans.push_back(st.top());
+        st.pop();
+    }
+    return ans;
+}
 
 int main(){
     return 0;
