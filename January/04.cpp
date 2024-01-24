@@ -57,7 +57,19 @@ void NearLucky(){
     cout<<"NO"<<endl;
 }
 
+void Tram(){
+    int n;cin>>n;
+    int max_len=0;
+    int curr_len=0;
+    for(int i=0;i<n;i++){
+        int a,b;cin>>a>>b;
+        curr_len+=(b-a);
+        max_len=max(max_len,curr_len);
+    }
+    cout<<max_len<<endl;
+}
+
 int main(){
-    NearLucky();
+    Tram();
     return 0;
 }
