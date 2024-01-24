@@ -39,6 +39,25 @@ vector<int> printSeries(int n, int k)
     return ans;
 }
 
+void NearLucky(){
+    long long int n;cin>>n;
+    int count=0;
+    while(n){
+        if((n%10)==4 || (n%10)==7){
+            count++;
+        }
+        n=n/10;
+    }
+    if((count/10)==0){
+        if(count==7 || count==4){
+            cout<<"YES"<<endl;
+            return;
+        }
+    }
+    cout<<"NO"<<endl;
+}
+
 int main(){
+    NearLucky();
     return 0;
 }
