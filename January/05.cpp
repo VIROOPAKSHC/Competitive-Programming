@@ -57,6 +57,6 @@ void kstring(){
 }
 
 int main(){
-    kstring();
+    
     return 0;
 }
