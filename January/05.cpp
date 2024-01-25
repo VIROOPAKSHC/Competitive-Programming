@@ -56,7 +56,36 @@ void kstring(){
     }
 }
 
+void game23(){
+    long long int n,m;cin>>n>>m;
+    if(m%n!=0){
+        cout<<-1<<endl;
+        return;
+    }
+    long long int dividend = m/n;
+    int c=0;
+    while(dividend > 1){
+        if(dividend%3==0){
+            dividend/=3;
+        }
+        else if(dividend%2==0){
+            dividend/=2;
+        }
+        else{
+            dividend=100;
+            break;
+        }
+        c++;
+    }
+    if(dividend==100){
+        cout<<-1<<endl;
+    }
+    else{
+        cout<<c<<endl;
+    }
+}
+
 int main(){
-    
+    game23();
     return 0;
 }
