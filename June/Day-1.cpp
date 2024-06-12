@@ -45,6 +45,25 @@ public:
         }
         return neww;
     }
+
+    bool isPalindrome(int x) {
+        // Leetcode - IsPalindrome Problem
+        if(x<0){
+            return false;
+        }
+        vector<int> v;
+        while(x){
+            v.push_back(x%10);
+            x=x/10;
+        }
+        int n=v.size();
+        for(int i=0;i<n;i++){
+            if(v[i] != v[n-i-1]){
+                return false;
+            }
+        }
+        return true;
+    }
 };
 
 int main(){
