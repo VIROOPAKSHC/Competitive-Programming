@@ -98,7 +98,20 @@ public:
         // return a as the GCD
         return a;
     }
-
+    bool isArmstrong(int N){
+        int sum=0;
+        int NN = N;
+        vector<int> v;
+        while(NN){
+            v.push_back(NN%10);
+            NN = NN/10;
+        }
+        int n=v.size();
+        for(int i:v){
+            sum += pow(i,n);
+        }
+        return sum==N;
+    }
 };
 
 int main(){
@@ -143,5 +156,9 @@ int main(){
     CountDigits(4502);
 
     cout<<endl;
+
+    Solution* solution = new Solution;
+    cout<<"Is it an armstrong number : "<<solution->isArmstrong(371)<<endl;
+
     return 0;
 }
