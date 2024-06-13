@@ -41,14 +41,30 @@ void Print1toN(int N){
 }
 
 int Sum1toN(int N){
+    // 4th Problem
     if(N==1){
         return 1;
     }
     return N+Sum1toN(N-1);
 }
 
+void RecursiveReverse(vector<int>& vect){
+    if(vect.size()==1){
+        return;
+    }
+    int temp = *vect.rbegin();
+    vect.pop_back();
+
+    RecursiveReverse(vect);
+    vect.insert(vect.begin(),temp);
+}
+
 int main(){
 
-    cout<<Sum1toN(14)<<endl;
+    vector<int> vect = {1,2,3,4,5,6};
+    RecursiveReverse(vect);
+    for(auto a:vect){
+        cout<<a<<" ";
+    }
     return 0;
 }
