@@ -31,8 +31,17 @@ void recursivePrint(int N){
     recursivePrint(--N);
 }
 
+void Print1toN(int N){
+    if(N==0){
+        cout<<endl;
+        return;
+    }
+    Print1toN(--N);
+    cout<<N+1<<" ";
+}
+
 int main(){
 
-    recursivePrint(4);
+    Print1toN(14);
     return 0;
 }
