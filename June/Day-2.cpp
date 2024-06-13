@@ -132,12 +132,20 @@ public:
     }
 };
 
+map<int,int> CountOccurences(vector<int> vect){
+    map<int,int> mp;
+    for(int i=0;i<vect.size();i++){
+        mp[vect[i]]++;
+    }
+    return mp;
+}
+
 int main(){
 
-    vector<int> vect = {-3,43,7,-2};
-    RecursiveReverse(vect);
-    for(auto a:vect){
-        cout<<a<<" ";
+    
+    map<int,int> mp = CountOccurences({1,1,1,3,4,3,2,-3,5,3,4});
+    for(auto a:mp){
+        cout<<a.first<<" "<<a.second<<endl;
     }
     return 0;
 }
