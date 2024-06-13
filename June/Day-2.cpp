@@ -23,9 +23,16 @@ bool isPrime_Stylish(int N){
     return true;
 }
 
+void recursivePrint(int N){
+    if(N==0){
+        return;
+    }
+    cout<<"VIROOPAKSH"<<endl;
+    recursivePrint(--N);
+}
+
 int main(){
 
-    cout<<isPrime_Stylish(179)<<endl;
-    cout<<isPrime_Stylish(454)<<endl;
+    recursivePrint(4);
     return 0;
 }
