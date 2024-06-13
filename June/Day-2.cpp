@@ -40,8 +40,15 @@ void Print1toN(int N){
     cout<<N+1<<" ";
 }
 
+int Sum1toN(int N){
+    if(N==1){
+        return 1;
+    }
+    return N+Sum1toN(N-1);
+}
+
 int main(){
 
-    Print1toN(14);
+    cout<<Sum1toN(14)<<endl;
     return 0;
 }
