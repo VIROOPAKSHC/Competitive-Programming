@@ -140,12 +140,23 @@ map<int,int> CountOccurences(vector<int> vect){
     return mp;
 }
 
+int HighestFreq(vector<int> vect){
+    map<int,int> mp;
+    int count=0,ele=-1;
+    for(int i:vect){
+        mp[i]++;
+        if(mp[i]>count){
+            count=mp[i];
+            ele=i;
+        }
+    }
+    return ele;
+
+}
+
 int main(){
 
     
-    map<int,int> mp = CountOccurences({1,1,1,3,4,3,2,-3,5,3,4});
-    for(auto a:mp){
-        cout<<a.first<<" "<<a.second<<endl;
-    }
+    cout<<HighestFreq({1,2,-4,6,67,34})<<endl;
     return 0;
 }
