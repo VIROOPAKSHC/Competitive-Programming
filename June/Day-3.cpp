@@ -61,9 +61,10 @@ public:
                 j=l;
             }
             nums[j]=temp;
-        
+        }
+    }
 };
 
 int main(){
-
+    return 0;
 }
