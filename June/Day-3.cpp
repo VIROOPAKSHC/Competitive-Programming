@@ -41,6 +41,27 @@ public:
         }
         return j;
     }
+    void rotate(vector<int>& nums, int k) {
+        int n=nums.size();
+        int gcd=__gcd(n,k);
+        k=k%n;
+        for(int i=0;i<gcd;i++){
+            int temp=nums[i];
+            int j=i;
+            int l;
+            while(true){
+                l=j-k;
+                if(l<0){
+                    l=l+n;
+                }
+                if(l==i){
+                    break;
+                }
+                nums[j]=nums[l];
+                j=l;
+            }
+            nums[j]=temp;
+        
 };
 
 int main(){
