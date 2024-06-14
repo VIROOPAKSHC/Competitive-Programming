@@ -30,6 +30,17 @@ public:
         }
         return true;
     }
+    int removeDuplicates(vector<int>& nums) {
+        int i=1,j=1;
+        while(i<nums.size()){
+            if(nums[i]!=nums[j-1]){
+                nums[j]=nums[i];
+                j++;
+            }
+            i++;
+        }
+        return j;
+    }
 };
 
 int main(){
