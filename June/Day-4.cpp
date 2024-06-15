@@ -25,6 +25,38 @@ public:
             nums[j]=temp;
         }
     }
+    int missingNumber(vector<int>& nums) {
+        if(nums.size()==1){
+            if(nums[0]==0){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+        int n = 0;
+        int sum=0;
+        int found=0;
+        for(int i:nums){
+            if(i==0){
+                found=1;
+            }
+            sum+=i;
+            if(n < i){
+                n = i;
+            }
+        }
+        if(!found){
+            return 0;
+        }
+        int val = ((n*(n+1))/2)-sum;
+        if(val){
+            return val;
+        }
+        else{
+            return n+1;
+        }
+    }
 };
 
 int FindElement(vector<int> vect,int k){
