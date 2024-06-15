@@ -57,6 +57,28 @@ public:
             return n+1;
         }
     }
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int prev=0;
+        int len=0;
+        int max_len=0;
+        for(int i:nums){
+            if(i==0){
+                if(prev){
+                    max_len=max(max_len,len);
+                    len=0;
+                    prev=0;
+                }
+            }
+            else{
+                len++;
+                prev=1;
+            }
+        }
+        if(prev==1){
+            max_len=max(len,max_len);
+        }
+        return max_len;
+    }
 };
 
 int FindElement(vector<int> vect,int k){
