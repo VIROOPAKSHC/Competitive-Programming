@@ -79,6 +79,13 @@ public:
         }
         return max_len;
     }
+    int singleNumber(vector<int>& nums) {
+        int ans=0;
+        for(int i:nums){
+            ans^=i;
+        }
+        return ans;
+    }
 };
 
 int FindElement(vector<int> vect,int k){
