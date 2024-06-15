@@ -53,6 +53,23 @@ int FindElement(vector<int> vect,int k){
     }
     return -1;
 }
+
+vector<int> findUnion(int arr1[],int arr2[],int n,int m){
+    map<int,int> mp;
+    for(int i=0;i<n;i++){
+        mp[arr1[i]]++;
+    }
+    for(int i=0;i<m;i++){
+        mp[arr2[i]]++;
+    }
+    vector<int> ans;
+    for(auto a:mp){
+        ans.push_back(a.first);
+    }
+    return ans;
+    
+}
+
 int main(){
     cout<<FindElement({1,2,3,5,6,7},4)<<endl;
     return 0;
