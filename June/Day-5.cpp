@@ -90,6 +90,31 @@ public:
         }
         return -1;
     }
+    int searchInsert(vector<int>& nums, int target) {
+        int lo=0;
+        int hi=(nums.size()-1);
+        int mid=(lo+hi)/2;
+        while(lo<=hi){
+            if(nums[mid]==target){
+                return mid;
+            }
+            else if(nums[mid]>target){
+                if(mid>0 && nums[mid-1]<target){
+                    return mid;
+                }
+                hi=mid-1;
+                mid=(lo+hi)/2;
+            }
+            else{
+                if(mid<nums.size()-1 && (nums[mid+1]>target)){
+                    return mid+1;
+                }
+                lo=mid+1;
+                mid=(lo+hi)/2;
+            }
+        }
+        return hi+1;
+    }
 };
 
 int main()
