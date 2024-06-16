@@ -1,12 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-
-#include <bits/stdc++.h>
-using namespace std;
-
 int getLongestSubarray(vector<int>& a, long long k) {
     int n = a.size(); // size of the array.
 
@@ -29,6 +23,34 @@ int getLongestSubarray(vector<int>& a, long long k) {
 
     return maxLen;
 }
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        
+        int lo = 0;
+        int hi = nums.size()-1;
+        int mid = (lo+hi)/2;
+        
+        while(lo<=hi){
+            if(nums[mid]==target){
+                return mid;
+            }
+            else if(nums[mid]>target){
+                hi = mid-1;
+                mid = (lo+hi)/2;
+            }
+            else{
+                lo = mid+1;
+                mid = (lo+hi)/2;
+            }
+            if((lo>nums.size()-1)||(hi>nums.size()-1)){
+                break;
+            }
+        }
+        return -1;
+    }
+};
 
 int main()
 {
