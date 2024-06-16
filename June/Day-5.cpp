@@ -50,6 +50,46 @@ public:
         }
         return -1;
     }
+    int findFloor(vector<long long> v, long long n, long long x){
+        
+        // Your code here
+        long long int lo=0;
+        long long int hi=n-1;
+        long long int mid=(lo+hi)/2;
+        while(lo<=hi){
+            if(lo==hi){
+                if(lo==0){
+                    if(v[lo]>x){
+                        return -1;
+                    }
+                    else{
+                        return lo;
+                    }
+                }
+                else if(hi==n-1){
+                    if(v[hi]<=x){
+                        return hi;
+                    }
+                }
+            }
+            if(v[mid]==x){
+                return mid;
+            }
+            else if(v[mid]>x){
+                
+                hi=mid-1;
+                mid=(lo+hi)/2;
+            }
+            else{
+                if(v[mid+1]>x){
+                    return mid;
+                }
+                lo=mid+1;
+                mid=(lo+hi)/2;
+            }
+        }
+        return -1;
+    }
 };
 
 int main()
