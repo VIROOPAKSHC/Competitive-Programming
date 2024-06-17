@@ -1,3 +1,6 @@
+// Author - Chekuri Viroopaksh
+// Day 5 - 16th of June, 2024
+// Striver's A2Z DSA sheet
 #include<bits/stdc++.h>
 using namespace std;
 
