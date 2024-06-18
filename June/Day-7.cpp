@@ -64,6 +64,19 @@ int majorityElement(vector<int>& nums) {
         return max_ele;
     }
 
+int majorityElement_Stylish(vector<int>& nums) {
+        int c=0,result=0;
+        for(int i:nums){
+            if(c==0)
+                result = i;
+            if(result != i)
+                c--;
+            else
+                c++;
+        }
+        return result;
+    }
+
 int main(){
 
 }
