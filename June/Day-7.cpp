@@ -88,6 +88,21 @@ int maxSubArray(vector<int>& nums) {
         return maxi;
 }
 
+vector<int> rearrangeArray(vector<int>& nums) {
+        vector<int> neg;
+        vector<int> pos;
+        for(int i:nums){
+            if(i>0) pos.push_back(i);
+            else neg.push_back(i);
+        }
+        int a=0,b=0;
+        for(int i=0;i<nums.size();i++){
+            if(i%2) nums[i]=neg[b++];
+            else nums[i]=pos[a++];
+        }
+        return nums;
+}
+
 int main(){
 
 }
