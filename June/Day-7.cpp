@@ -74,8 +74,19 @@ int majorityElement_Stylish(vector<int>& nums) {
             else
                 c++;
         }
-        return result;
-    }
+    return result;
+}
+
+int maxSubArray(vector<int>& nums) {
+        long long maxi = LONG_MIN;
+        long long summ = 0;
+        for(int i:nums){
+            summ += i;
+            maxi = max(maxi,summ);
+            summ = max(long (0),long(summ));
+        }
+        return maxi;
+}
 
 int main(){
 
