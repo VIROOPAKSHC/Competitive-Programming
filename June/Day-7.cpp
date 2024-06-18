@@ -51,6 +51,18 @@ public:
         }
     }
 };
+int majorityElement(vector<int>& nums) {
+        map<long long int, long long int> mp;
+        long long int max_len=0,max_ele=0;
+        for(auto i:nums){
+            mp[i]++;
+            if(max_len < mp[i]){
+                max_len = mp[i];
+                max_ele = i;
+            }
+        }
+        return max_ele;
+    }
 
 int main(){
 
