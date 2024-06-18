@@ -22,6 +22,7 @@ int getlongestsubarray(vector<int> &a, int k){
         }
         if(prefixsum.find(sum) == prefixsum.end()){
             prefixsum[sum]=i;
+            
         }
     }
     return maxLen;
