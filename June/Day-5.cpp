@@ -11,6 +11,8 @@ int getLongestSubarray(vector<int>& a, long long k) {
     long long sum = a[0];
     int maxLen = 0;
     while (right < n) {
+        cout<<left<<" "<<right<<endl;
+        cout<<sum<<endl;
         while (left <= right && sum > k) {
             sum -= a[left];
             left++;
@@ -122,7 +124,7 @@ public:
 
 int main()
 {
-    vector<int> a = {2, 3, 5, 1, 9};
+    vector<int> a = {2, 3, 5, 1, 9, -3, 4, 8};
     long long k = 10;
     int len = getLongestSubarray(a, k);
     cout << "The length of the longest subarray is: " << len << "\n";
