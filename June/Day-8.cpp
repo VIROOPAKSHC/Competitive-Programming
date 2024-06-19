@@ -127,6 +127,26 @@ void rotate(vector<vector<int>>& matrix) {
         }        
     }
 
+vector<vector<int>> generate(int numRows) {
+        if(numRows==1){
+            return {{1}};
+        }
+        vector<vector<int>> ans={{1},{1,1}};
+        for(int i=2;i<numRows;i++){
+            vector<int> temp;
+            for(int j=0;j<=i;j++){
+                if(j==0 || j==i){
+                    temp.push_back(1);
+                }
+                else{
+                    temp.push_back(ans[i-1][j-1]+ans[i-1][j]);
+                }
+            }
+            ans.push_back(temp);
+        }
+        return ans;
+    }
+
 int main(){
     vector<int> a1 = findLeaders({4,7,1,0});
     vector<int> a2=findLeaders({10,22,12,3,0,6});
