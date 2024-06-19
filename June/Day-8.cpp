@@ -177,6 +177,7 @@ vector<vector<int>> generate(int numRows) {
         }
         return ans;
     }
+    
 
 int main(){
     vector<int> a1 = findLeaders({4,7,1,0});
