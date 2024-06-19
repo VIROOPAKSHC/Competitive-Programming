@@ -64,6 +64,44 @@ public:
     }
 };
 
+void setZeroes(vector<vector<int>>& matrix) {
+        map<int,int> mp;
+        for(int i=0;i<matrix.size();i++){
+            for(int j=0;j<matrix[i].size();j++){
+                if(matrix[i][j]==0){
+                    if(mp[i]==1){
+                        mp[i]=10;
+                    }
+                    if(mp[j]==-1){
+                        mp[j]=10;
+                    }
+                    if(!mp[i])
+                        mp[i]=-1;
+                    if(!mp[j])
+                        mp[j]=1;
+                    
+                    if(i==j){
+                        mp[i]=10;
+                    }
+                }
+                   
+            }
+        }
+       
+        for(int i=0;i<matrix.size();i++){
+            for(int j=0;j<matrix[i].size();j++){
+                if(mp[i]==-1 || mp[i]==10){
+                    matrix[i][j]=0;
+                    continue;
+                }
+                if(mp[j]==1 || mp[j]==10){
+                    matrix[i][j]=0;
+                    continue;
+                }
+            }
+        }
+    }
+
 int main(){
     vector<int> a1 = findLeaders({4,7,1,0});
     vector<int> a2=findLeaders({10,22,12,3,0,6});
