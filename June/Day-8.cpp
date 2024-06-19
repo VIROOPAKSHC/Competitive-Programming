@@ -102,6 +102,31 @@ void setZeroes(vector<vector<int>>& matrix) {
         }
     }
 
+void rotate(vector<vector<int>>& matrix) {
+        int edgeLength = matrix.size();
+
+        int top = 0;
+        int bottom = edgeLength - 1;
+
+        while (top < bottom) {
+            for (int col = 0; col < edgeLength; col++) {
+                int temp = matrix[top][col];
+                matrix[top][col] = matrix[bottom][col];
+                matrix[bottom][col] = temp;
+            }
+            top++;
+            bottom--;
+        }
+
+        for (int row = 0; row < edgeLength; row++) {
+            for (int col = row + 1; col < edgeLength; col++) {
+                int temp = matrix[row][col];
+                matrix[row][col] = matrix[col][row];
+                matrix[col][row] = temp;
+            }
+        }        
+    }
+
 int main(){
     vector<int> a1 = findLeaders({4,7,1,0});
     vector<int> a2=findLeaders({10,22,12,3,0,6});
