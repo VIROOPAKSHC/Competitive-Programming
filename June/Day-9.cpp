@@ -133,6 +133,25 @@ string rotate(string s){
         return false;
     }
 
+bool isAnagram(string s, string t) {
+        map<char,int> mp;
+        for(int i=0;i<s.size();i++){
+            mp[s[i]]++;
+        }
+        for(auto a:t){
+            if(mp[a]==0){
+                return false;
+            }
+            mp[a]--;
+        }
+        for(auto a:mp){
+            if(a.second!=0){
+                return false;
+            }
+        }
+        return true;
+    }
+
 int main(){
     return 0;
 }
