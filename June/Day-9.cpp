@@ -108,6 +108,30 @@ string longestCommonPrefix(vector<string>& strs) {
         }
         return common;
 }
+string rotate(string s){
+        string ans="";
+        ans+=s[s.size()-1];
+        for(int i=0;i<s.size()-1;i++){
+            ans+=s[i];
+        }
+        return ans;
+    }
+    bool rotateString(string s, string goal) {
+        if(s.size()!=goal.size()){
+            return false;
+        }
+        if(s==goal){
+            return true;
+        }
+        string another = s;
+        for(int i=1;i<s.size()-1;i++){
+            another = rotate(another);
+            if(another==goal){
+                return true;
+            }
+        }
+        return false;
+    }
 
 int main(){
     return 0;
