@@ -89,6 +89,26 @@ string largestOddNumber(string num) {
         }
     }
 
+string longestCommonPrefix(vector<string>& strs) {
+        string common=strs[0];
+        for(int i=1;i<strs.size();i++){
+            string p="";
+            if(common.size()==0){
+                break;
+            }
+            for(int j=0;j<common.size() && j<strs[i].size();j++){
+                if(common[j]==strs[i][j]){
+                    p+=common[j];
+                }
+                else{
+                    break;
+                }
+            }
+            common=p;
+        }
+        return common;
+}
+
 int main(){
     return 0;
 }
