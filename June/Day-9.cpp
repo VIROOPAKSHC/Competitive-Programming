@@ -41,6 +41,34 @@ public:
     }
 };
 
+
+string reverseWords(string s) {
+        vector<string> words;
+        string ans="";
+        for(auto c:s){
+            if(c==' '){
+                if(ans.size()){
+                    words.push_back(ans);
+                    ans="";
+                }
+            }
+            else{
+                ans+=c;
+            }
+        }
+        if(ans.size()){
+            words.push_back(ans);
+        }
+        ans="";
+        for(int i=words.size()-1;i>=0;i--){
+            ans+=words[i];
+            if(i!=0){
+                ans+=' ';
+            }
+        }
+        return ans;
+    }
+
 int main(){
     return 0;
 }
