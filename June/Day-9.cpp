@@ -69,6 +69,26 @@ string reverseWords(string s) {
         return ans;
     }
 
+string largestOddNumber(string num) {
+        int last_odd_ind=-1;
+        for(int i=0;i<num.size();i++){
+            int n = num[i]-'0';
+            if(n%2){
+                last_odd_ind = i;
+            }
+        }
+        if(last_odd_ind==-1){
+            return "";
+        }
+        else{
+            string ans="";
+            for(int i=0;i<last_odd_ind+1;i++){
+                ans+=num[i];
+            }
+            return ans;
+        }
+    }
+
 int main(){
     return 0;
 }
