@@ -42,6 +42,84 @@ public:
         }
         return max_c;
     }
+    int romanToInt(string s) {
+        int c=0,n=s.size();
+        map<char,int> mp;
+        mp['I']=1;
+        mp['V']=5;
+        mp['X']=10;
+        mp['L']=50;
+        mp['C']=100;
+        mp['D']=500;
+        mp['M']=1000;
+        int i=0;
+        while(i<n){
+            if(i!=n-1){
+                if(s[i]=='I'){
+                    if(s[i+1]=='V'){
+                        c+=4;
+                        i+=2;
+                        continue;
+                    }
+                    else if(s[i+1]=='X'){
+                        c+=9;
+                        i+=2;
+                        continue;
+                    }
+                    else{
+                        c+=1;
+                        i++;
+                        continue;
+                    }
+                }
+                else if(s[i]=='X'){
+                    if(s[i+1]=='L'){
+                        c+=40;
+                        i+=2;
+                        continue;
+                    }
+                    else if(s[i+1]=='C'){
+                        c+=90;
+                        i+=2;
+                        continue;
+                    }
+                    else{
+                        c+=10;
+                        i++;
+                        continue;
+                    }
+                }
+                else if(s[i]=='C'){
+                    if(s[i+1]=='D'){
+                        c+=400;
+                        i+=2;
+                        continue;
+                    }
+                    else if(s[i+1]=='M'){
+                        c+=900;
+                        i+=2;
+                        continue;
+                    }
+                    else{
+                        c+=100;
+                        i++;
+                        continue;
+                    }
+                }
+                else{
+                    c+=mp[s[i]];
+                    i++;
+                    continue;
+                }
+            }
+            else{
+                c+=mp[s[i]];
+                i++;
+                continue;
+            }
+        }
+        return c;
+    }
 };
 
 int main(){
