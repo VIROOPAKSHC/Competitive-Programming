@@ -29,6 +29,19 @@ public:
 
        
     }
+    int maxDepth(string s) {
+        int c=0,max_c=0;
+        for(auto a:s){
+            if(a=='('){
+                c++;
+            }
+            else if(a==')'){
+                max_c=max(c,max_c);
+                c--;
+            }
+        }
+        return max_c;
+    }
 };
 
 int main(){
