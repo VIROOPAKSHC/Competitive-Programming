@@ -40,6 +40,29 @@ public:
         }
         return num;
     }
+    vector<int> plusOne(vector<int>& digits) {
+        int n=digits.size();
+        int i=n-1;
+        while(i>=0){
+            if(digits[i]+1 == 10){
+                digits[i]=0;
+                i--;
+            }
+            else{
+                digits[i]+=1;
+                break;
+            }
+        }
+        if(i==-1){
+            vector<int> ans;
+            ans.push_back(1);
+            for(int i=0;i<n;i++){
+                ans.push_back(0);
+            }
+            return ans;
+        }
+        return digits;
+    }
 };
 
 int main(){
