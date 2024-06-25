@@ -95,6 +95,17 @@ vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& n
     return v;
     }
 
+int numberOfPoints(vector<vector<int>>& nums) {
+        map<int,int> mp;
+        for(auto a:nums){
+                for(int i=a[0];i<=a[1];i++){
+                    mp[i]++;
+                }
+            
+        }
+        return mp.size();
+    }
+
 int main(){
 
     return 0;
