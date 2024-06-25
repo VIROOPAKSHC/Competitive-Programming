@@ -62,6 +62,39 @@ int BinSearchInSortedRotatedArray(vector<int> arr,int key){
     }
 };
 
+vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+        map<int,int> mp;
+        for(int i:nums1){
+            mp[i]=1;
+        }
+        map<int,int> mp2;
+        for(int i:nums2){
+            mp2[i]=1;
+        }
+        map<int,int> mp3;
+        for(int i:nums3){
+            mp3[i]=1;
+        }
+        map<int,int> finl;
+        for(auto a:mp){
+            finl[a.first]++;
+        }
+        for(auto a:mp2){
+            finl[a.first]++;
+        }
+        
+        for(auto a:mp3){
+            finl[a.first]++;
+        }
+        vector<int> v;
+        for(auto a:finl){
+            if(a.second >= 2){
+                v.push_back(a.first);
+            }
+        }
+    return v;
+    }
+
 int main(){
 
     return 0;
