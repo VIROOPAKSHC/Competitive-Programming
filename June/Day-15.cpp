@@ -59,9 +59,36 @@ class Solution {
         int bit=n>>k;
         return bit&1;
     }
+    string oddEven(int N){
+        // code here
+        return (N%2==1)?"odd":"even";
+    }
+    bool isPowerOfTwo(int n) {
+        if(n==0){
+            return false;
+        }
+        if(n==1){
+            return true;
+        }
+        int power=0;
+        long int Value=pow(2,power);
+        int Output=false;
+        while(true){
+            if(Value<n){
+                power++;
+            }
+            else if(Value==n){
+                return true;
+            }
+            else if(Value>n){
+                break;
+            }
+            Value=pow(2,power);
+        }
+        return Output;
+    }
 };
 
 int main(){
-vector<int> v;
     return 0;
 }
