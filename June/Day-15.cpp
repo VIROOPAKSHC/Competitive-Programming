@@ -44,6 +44,17 @@ class Solution {
         }
         cout<<ans[0]<<" "<<ans[1]<<" "<<ans[2];
     }
+    bool checkKthBit(int n, int k)
+    {
+        k--;
+        while(k>=0){
+            n=n/2;
+            k--;
+        }
+        return n%2==1;
+        // Your code here
+        // It can be a one liner logic!! Think of it!!
+    }
 };
 
 int main(){
