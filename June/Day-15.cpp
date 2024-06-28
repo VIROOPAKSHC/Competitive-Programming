@@ -55,6 +55,10 @@ class Solution {
         // Your code here
         // It can be a one liner logic!! Think of it!!
     }
+    bool checkKthBit_Stylish(int n,int k){
+        int bit=n>>k;
+        return bit&1;
+    }
 };
 
 int main(){
