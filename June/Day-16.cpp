@@ -22,6 +22,20 @@ public:
         }
         return summ==0;
     }
+    string removeTrailingZeros(string num) {
+        string ans = "";
+        int prev=-1;
+        for(int i=0;i<num.size();i++){
+            if(num[i]!='0'){
+                prev=i;
+            }
+        }
+        
+        for(int j=0;j<=prev;j++){
+            ans+=num[j];
+        }
+        return ans;
+    }
 };
 
 int main(){
