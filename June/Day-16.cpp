@@ -36,6 +36,25 @@ public:
         }
         return ans;
     }
+    int prefixCount(vector<string>& words, string pref) {
+        int c=0;
+        for(auto word:words){
+            if(word.size()<pref.size()){
+                continue;
+            }
+            bool f=true;
+            for(int i=0;i<pref.size();i++){
+                if(pref[i]!=word[i]){
+                    f=false;
+                    break;
+                }
+            }
+            if(f){
+                c++;
+            }
+        }
+        return c;
+    }
 };
 
 int main(){
