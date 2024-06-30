@@ -97,6 +97,29 @@ public:
         }
         return st.size();
     }
+    string largestGoodInteger(string num) {
+        string max_curr = "";
+        int max_int = -1;
+        for(int i=0;i<num.size()-2;i++){
+            int k = i;
+            if(i+2 > num.size()-1){
+                break;
+            }
+            if(num[k]==num[k+1] && num[k]==num[k+2]){
+                
+                string val="";
+                val+=num[k];
+                val+=num[k+1];
+                val+=+num[k+2];
+                
+                if(max_int < StringToNum(val)){
+                    max_curr = val;
+                    max_int = StringToNum(val);
+                }
+            }
+        }
+        return max_curr;
+    }
 };
 int main(){
     return 0;
