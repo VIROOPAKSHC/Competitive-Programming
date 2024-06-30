@@ -76,6 +76,27 @@ public:
         }
         return neww.size();
     }
+    int minLength_Stylish(string s) {
+        stack<char> st;
+        for(int i=0;i<s.size();i++){
+            if(st.empty()){
+                st.push(s[i]);
+            }
+            else{
+                if(st.top()=='A' && s[i]=='B'){
+                    st.pop();
+                }
+                else if(st.top()=='C' && s[i]=='D'){
+                    st.pop();
+                }
+                else{
+                    st.push(s[i]);
+                }
+            }
+        
+        }
+        return st.size();
+    }
 };
 int main(){
     return 0;
