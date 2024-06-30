@@ -39,6 +39,43 @@ public:
         }
         return true;
     }
+    int minLength(string s) {
+        int i=0;
+        string old = s;
+        string neww = "";
+        int k = s.size();
+        while(k--){
+            int ops = 0;
+            int i=0;
+            
+            while(i<old.size()-1){
+                if(old[i]=='A' && old[i+1]=='B'){
+                    i+=2;
+                    ops++;
+
+                }
+
+                else if(old[i]=='C' && old[i+1]=='D'){
+                    i+=2;
+                    ops++;
+                }
+                else{
+                    neww += old[i];
+                    i+=1;
+                }
+                
+            }
+            if(i==old.size()-1){
+                neww += old[i];
+            }
+            if(ops==0 || neww.size()==0){
+                return neww.size();
+            }
+            old = neww;
+            neww = "";
+        }
+        return neww.size();
+    }
 };
 int main(){
     return 0;
