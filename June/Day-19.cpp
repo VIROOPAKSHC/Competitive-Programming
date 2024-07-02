@@ -72,6 +72,38 @@ public:
         }
         else{return "scalene";}
     }
+    int missingInteger(vector<int>& nums) {
+        int s=nums[0];
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]==nums[i-1]+1){
+                s+=nums[i];
+            }
+            else{
+                break;
+            }
+       }
+       int ind=-1;
+       sort(nums.begin(),nums.end());
+       for(int i=0;i<nums.size();i++){
+        if(nums[i]<s){
+            continue;
+        }
+        
+        else if(nums[i]>s){
+            return s;
+        }
+        else{
+            ind = i;
+            break;
+        }
+       }
+       while(ind<nums.size() && nums[ind]==s){
+        ind++;
+        while(ind<nums.size() && nums[ind]==nums[ind-1]){ind++;}
+        s++;
+       }
+       return s;
+    }
 };
 
 int main(){
