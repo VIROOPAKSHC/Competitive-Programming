@@ -52,6 +52,26 @@ public:
         int m2 = nums[0]*nums[1];
         return max(m1,m2*nums[n-1]);
     }
+    bool istriangle(int a,int b,int c){
+        return (a+b>c) && (b+c>a) && (c+a>b);
+    }
+    string triangleType(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int a,b,c;
+        a = nums[0];
+        b = nums[1];
+        c = nums[2];
+        if(!istriangle(a,b,c)){
+            return "none";
+        }
+        if(c==a){
+            return "equilateral";
+        }
+        else if((c==b)||(b==a)){
+            return "isosceles";
+        }
+        else{return "scalene";}
+    }
 };
 
 int main(){
