@@ -4,6 +4,9 @@
 
 #include<bits/stdc++.h>
 using namespace std;
+bool compare(int a, int b){
+        return a>=b;
+}
 
 class Solution {
 public:
@@ -103,6 +106,21 @@ public:
         s++;
        }
        return s;
+    }
+    vector<vector<int>> sortTheStudents(vector<vector<int>>& score, int k) {
+        auto copyy = score;
+        map<int,int> mp;
+        vector<int> vals;
+        for(int i=0;i<score.size();i++){
+            mp[score[i][k]] = i;
+            vals.push_back(score[i][k]);
+        }
+        sort(vals.begin(),vals.end(),compare);
+        vector<vector<int>> ans;
+        for(int i:vals){
+            ans.push_back(score[mp[i]]);
+        }
+        return ans;
     }
 };
 
