@@ -122,6 +122,27 @@ public:
         }
         return ans;
     }
+    string sortVowels(string s) {
+        vector<char> vowels;
+        string ans = "";
+        for(auto a:s){
+            if((a=='a' || a=='A')||(a=='e'||a=='E')||(a=='i'||a=='I')||(a=='o'||a=='O')||(a=='u'||a=='U')){
+                vowels.push_back(a);
+            }
+        }
+        sort(vowels.begin(),vowels.end());
+        int i=0;
+        for(auto a:s){
+            if((a=='a' || a=='A')||(a=='e'||a=='E')||(a=='i'||a=='I')||(a=='o'||a=='O')||(a=='u'||a=='U')){
+                ans+=vowels[i];
+                i++;
+            }
+            else{
+                ans+=a;
+            }
+        }
+        return ans;
+    }
 };
 
 int main(){
