@@ -4,7 +4,14 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-
+bool cmp(pair<int,int> a,pair<int,int> b){
+    if(a.second!=b.second){
+        return a.second<b.second;
+    }
+    else{
+        return a.first>b.first;
+    }
+}
 class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
@@ -78,6 +85,24 @@ public:
                 }
                 ans[mp[score[i]]] = act;
             }
+        }
+        return ans;
+    }
+    vector<int> frequencySort(vector<int>& nums) {
+        map<int,int> mp;
+        vector<pair<int,int>> pairs;
+        for(int a:nums){
+            mp[a]++;
+        }
+        for(auto a:mp){
+            pairs.push_back(a);
+        }
+        sort(pairs.begin(),pairs.end(),cmp);
+        vector<int> ans;
+        for(auto a:pairs){
+            int freq = a.second;
+            while(freq--){ans.push_back(a.first);}
+            ;
         }
         return ans;
     }
