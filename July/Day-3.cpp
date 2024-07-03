@@ -47,6 +47,40 @@ public:
         sort(arr.begin(),arr.end());
         return target==arr;
     }
+    vector<string> findRelativeRanks(vector<int>& score) {
+        map<int,int> mp;
+        for(int i=0;i<score.size();i++){
+            mp[score[i]] = i;
+        }
+        sort(score.begin(),score.end());
+        vector<string> ans(score.size());
+        int n=score.size();
+        for(int i=n-1;i>=0;i--){
+            if(i==n-1){
+                ans[mp[score[i]]] = "Gold Medal";
+            }
+            else if(i==n-2){
+                ans[mp[score[i]]] = "Silver Medal";
+            }
+            else if(i==n-3){
+                ans[mp[score[i]]] = "Bronze Medal";
+            }
+            else{
+                string val = "";
+                int rem = n-i;
+                while(rem){
+                    val += ('0'+(rem%10));
+                    rem = rem/10;
+                }
+                string act = "";
+                for(int j=val.size()-1;j>=0;j--){
+                    act+=val[j];
+                }
+                ans[mp[score[i]]] = act;
+            }
+        }
+        return ans;
+    }
 };
 
 int main(){
