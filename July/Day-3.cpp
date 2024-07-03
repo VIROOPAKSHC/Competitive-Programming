@@ -33,6 +33,15 @@ public:
         }
         return c;
     }
+    int minimumOperations_Stylish(vector<int>& nums) {
+        unordered_set<int> pos;
+        for(int a:nums){
+            if(a){
+                pos.insert(a);
+            }
+        }
+        return pos.size();
+    }
 };
 
 int main(){
