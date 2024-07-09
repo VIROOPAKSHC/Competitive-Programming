@@ -152,6 +152,17 @@ public:
         }
         return nums;
     }
+    double averageWaitingTime(vector<vector<int>>& customers) {
+        
+        double time = customers[0][0];
+        time+=customers[0][1];
+        double total_wait = time-customers[0][0];
+        for(int i=1;i<customers.size();i++){
+            time=max(time,double(customers[i][0]))+customers[i][1];
+            total_wait += (time-customers[i][0]);
+        }
+        return (total_wait)/customers.size();
+    }
 };
 
 int main(){
