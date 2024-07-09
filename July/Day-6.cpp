@@ -26,6 +26,27 @@ public:
         if(p1[0]!=p2[0]) return p1[0]<p2[0];
         else return p1[1]>p2[1];
     }
+    vector<vector<int>> findWinners(vector<vector<int>>& matches) {
+        map<int,int> mp;
+        set<int> s;
+        for(auto a:matches){
+            mp[a[0]] = mp[a[0]];
+            mp[a[1]] = mp[a[1]]+1;
+            s.insert(a[0]);
+            s.insert(a[1]);
+        }
+        vector<int> first;
+        vector<int> second;
+        for(int a:s){
+            if(mp[a] == 0){
+                first.push_back(a);
+            }
+            else if(mp[a]==1){
+                second.push_back(a);
+            }
+        }
+        return {first,second};
+    }
 };
 
 int main(){
