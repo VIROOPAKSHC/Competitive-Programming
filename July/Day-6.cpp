@@ -5,6 +5,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+bool cmp(pair<char,int>& a,pair<char,int>& b){
+    if(a.second != b.second){
+        return a.second>b.second;
+    }
+    return a.first>b.first;
+}
+
 class Solution {
 public:
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
@@ -84,6 +91,25 @@ public:
         return result;
 
        
+    }
+    string frequencySort_Mine(string s) {
+        map<char,int> mp;
+        for(char a:s){
+            mp[a]++;
+        }
+        vector<pair<char,int>> m;
+        for(auto a:mp){
+            m.push_back(a);
+        }
+        sort(m.begin(),m.end(),cmp);
+        string ans="";
+        for(auto a:m){
+            int i = a.second;
+            while(i--){
+                ans+=a.first;
+            }
+        }
+        return ans;
     }
 };
 
