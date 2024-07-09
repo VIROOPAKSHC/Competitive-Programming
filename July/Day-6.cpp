@@ -111,6 +111,28 @@ public:
         }
         return ans;
     }
+    string customSortString(string order, string s) {
+        map<char,int> mp;
+        for(char a:s){
+            mp[a]++;
+        }
+        string ans="";
+        for(char a:order){
+            int i = mp[a];
+            while(i--){
+                ans+=a;
+            }
+            mp[a]=0;
+        }
+        for(auto a:mp){
+            if(a.second==0) continue;
+            int i=a.second;
+            while(i--){
+                ans+=a.first;
+            }
+        }
+        return ans;
+    }
 };
 
 int main(){
