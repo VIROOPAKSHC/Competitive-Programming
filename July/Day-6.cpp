@@ -134,15 +134,24 @@ public:
         return ans;
     }
     int minimumPushes(const string &word) {
-    int cnt[26] = {}, key = 0, res = 0;
-    for (char ch : word)
-        ++cnt[ch - 'a'];
-    sort(begin(cnt), end(cnt), greater<>());
-    for (int c : cnt)
-        res += (1 + key++ / 8) * c;
-    return res;
+        int cnt[26] = {}, key = 0, res = 0;
+        for (char ch : word)
+            ++cnt[ch - 'a'];
+        sort(begin(cnt), end(cnt), greater<>());
+        for (int c : cnt)
+            res += (1 + key++ / 8) * c;
+        return res;
 
-}
+    }
+    vector<int> numberGame(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i+=2){
+            int temp = nums[i];
+            nums[i] = nums[i+1];
+            nums[i+1] = temp;
+        }
+        return nums;
+    }
 };
 
 int main(){
