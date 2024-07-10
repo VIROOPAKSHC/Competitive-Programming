@@ -39,7 +39,31 @@ public:
         }
         return ans;
     }
-    
+    int unequalTriplets(vector<int>& nums) {
+        map<int,int> mp;
+        vector<int> unique;
+        for(int a:nums){
+            if(mp[a]==0){
+                unique.push_back(a);
+            }
+            mp[a]++;
+        }
+        if(mp.size()<3) return 0;
+        int ans=0;
+        int n=unique.size();
+        int val1,val2,val3;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                for(int k=j+1;k<n;k++){
+                    val1 = unique[i];
+                    val2 = unique[j];
+                    val3 = unique[k];
+                    ans += (mp[val1]*mp[val2]*mp[val3]);
+                }
+            }
+        }
+        return ans;
+    }
 };
 
 int main(){
