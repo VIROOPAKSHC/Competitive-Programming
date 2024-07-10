@@ -21,6 +21,25 @@ public:
         }
         return c;
     }
+    vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
+        sort(nums.begin(),nums.end());
+        vector<int> ans;
+        int c=0;
+        for(int a:queries){
+            int s=0;
+            c=0;
+            for(int i:nums){
+                s+=i;
+                if(s>a){
+                    break;
+                }
+                c++;
+            }
+            ans.push_back(c);
+        }
+        return ans;
+    }
+    
 };
 
 int main(){
