@@ -57,6 +57,33 @@ public:
         }
         return s.size();
     }
+    bool checkIfCanBreak(string s1, string s2) {
+        sort(s1.begin(),s1.end());
+        sort(s2.begin(),s2.end());
+        if(s1==s2)
+            return true;
+
+        int l=0;
+        for(int i=0;i<s1.size();i++){
+            if(s1[i]<s2[i]){
+               l=1;
+               break; 
+            }
+        }
+        if(l==0)
+            return true;
+        
+        l = 0;
+        for(int i=0;i<s1.size();i++){
+            if(s1[i]>s2[i]){
+               l=1;
+               break; 
+            }
+        }
+        if(l==0)
+            return true;
+        return false;
+    }
 };
 
 int main(){
