@@ -35,6 +35,28 @@ public:
         reverse(ans.begin(),ans.end());
         return ans;
     }
+    int numSpecialEquivGroups(vector<string>& words) {
+        int n = words.size();
+        unordered_set<string>s;
+        for(int i=0;i<n;i++){
+            string even = "";
+            string odd = "";
+            string s1 = words[i];
+            for(int i=0;i<s1.size();i++){
+                if(i%2 == 0){
+                    even += s1[i];
+                }
+                else{
+                    odd += s1[i];
+                }
+            }
+            sort(even.begin(),even.end());
+            sort(odd.begin(),odd.end());
+            string ans1 = even+odd;
+            s.insert(ans1);
+        }
+        return s.size();
+    }
 };
 
 int main(){
