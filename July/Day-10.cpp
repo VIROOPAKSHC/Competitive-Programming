@@ -48,6 +48,27 @@ int numberOfPairs(vector<int>& nums1, vector<int>& nums2, int k) {
         return c;
     }
 
+string decodeMessage(string key, string message) {
+        map<char,char> mp;
+        string alphas = "abcdefghijklmnopqrstuvwxyz";
+        int c=0;
+        for(char a:key){
+            if(a==' '){continue;}
+            if(!mp[a]){
+                mp[a]=alphas[c++];
+            }
+        }
+        string decoded = "";
+        for(char a:message){
+            if(a==' '){
+                decoded+=' ';
+                continue;
+            }
+            decoded += mp[a];
+        }
+        return decoded;
+    }
+
 int main(){
     return 0;
 }
