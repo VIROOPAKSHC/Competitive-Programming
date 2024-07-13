@@ -5,6 +5,25 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+class OrderedStream {
+public:
+    string mp[1000];
+    int curr = 0;
+    OrderedStream(int n) {
+        
+    }
+    
+    vector<string> insert(int idKey, string value) {
+        mp[idKey-1] = value;
+        vector<string> ans;
+        while(mp[curr]!=""){
+            ans.push_back(mp[curr]);
+            curr++;
+        }
+        return ans;
+    }
+};
+
 int findPermutationDifference(string s, string t) {
         map<char,int>mp;
         int sss=0;
