@@ -17,6 +17,18 @@ int findPermutationDifference(string s, string t) {
         return sss;
     }
 
+int numberOfPairs(vector<int>& nums1, vector<int>& nums2, int k) {
+        int c=0;
+        for(int a:nums1){
+            for(int b:nums2){
+                if(a%(b*k) == 0){
+                    c++;
+                }
+            }
+        }
+        return c;
+    }
+
 int main(){
     return 0;
 }
