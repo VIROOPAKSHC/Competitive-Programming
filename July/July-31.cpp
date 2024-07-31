@@ -32,6 +32,19 @@ public:
         }
         return ans;
     }
+    int minOperations(vector<int>& nums, int k) {
+        int x = nums[0];
+        for(int i=1;i<nums.size();i++){
+            x = x ^ nums[i];
+        }
+        x = x^k;
+        int diff = 0;
+        while(x){
+            diff++;
+            x = (x&(x-1));
+        }
+        return diff;
+    }
 };
 
 int main(){
